@@ -31,7 +31,7 @@ $product_ids = array();
                                 <h4>$ <?php echo $product['price']; ?></h4>
                                 <input type="hidden" name="action" value="add">
                                 <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
-                                <input type="text" name="quantity" pattern="[0-9]{1,2}" class="form-control" value="1"/>
+                                <input type="text" name="quantity" title="Zahl muss realistisch sein!" pattern="[0-9]{1,2}" class="form-control" value="1"/>
                                 <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                                 <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
                                 <input type="submit" name="add_to_cart" style="margin-top:5px"class="btn btn-info"
@@ -60,6 +60,7 @@ $product_ids = array();
                         if(!empty($_SESSION['shopping_cart'])):
                             $total =0; 
                             foreach($_SESSION['shopping_cart'] as $key => $product):
+                                if ($product['quantity']>0){
                     ?>
                     <tr>
                         <td><?php echo $product['name']; ?></td>
@@ -67,13 +68,14 @@ $product_ids = array();
                         <td><?php echo $product['price']; ?>&nbsp€</td>
                         <td>$<?php echo number_format($product['quantity'] * $product['price'],2);; ?></td>
                         <td>
-                            <a href="cart.php?action=delete&id=<?php echo $product['id']; ?>">
+                            <a href="removeFromCart.php?action=delete&id=<?php echo $product['id']; ?>">
                                 <div class ="btn-danger">Remove</div>
                             </a>
                         </td>
                     </tr>
                     <?php
                         $total = $total + ($product['quantity'] * $product['price']);
+                                }
                         endforeach; 
                     ?>
                     <tr>
