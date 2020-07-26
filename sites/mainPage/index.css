@@ -1,6 +1,15 @@
+.products {
+  border: 1px solid #333; 
+  background-color: #2b3b97; 
+  border-radius: 5px; 
+  padding: 16px; 
+  margin-bottom: 20x; 
+}
+
 .container {
   max-width: 960px;
 }
+
 
 /*
  * Custom translucent site header
@@ -28,6 +37,8 @@
 .linkBottom:hover {
   color: #999
 }
+
+
 
 /*
  * Dummy devices (replace them with your own or something else entirely!)

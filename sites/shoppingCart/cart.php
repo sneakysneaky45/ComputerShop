@@ -68,10 +68,10 @@ $product_ids = array();
                             <div class="products">
                                 <img src="<?php echo $product['image']; ?>" class="img-responsive"/> //nicht funktionsfähig da entfernt wird
                                 <h4 class="text-info"><?php echo $product['name']; ?></h4>
-                                <h4>$ <?php echo $product['price']; ?></h4>
+                                <h4> <?php echo $product['price']; ?>&nbsp€</h4>
                                 <input type="hidden" name="action" value="add">
                                 <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
-                                <input type="text" name="quantity" title="Zahl muss realistisch sein!" pattern="[0-9]{1,2}" class="form-control" value="1"/>
+                                <input type="text" name="quantity" title="Zahl muss realistisch sein!" pattern="[0-9]{1,2}" class="form-control" value="1"/> <!--regex, der prüft, ob eingabe plausibel ist -->
                                 <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                                 <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
                                 <input type="submit" name="add_to_cart" style="margin-top:5px"class="btn btn-info"
@@ -106,7 +106,7 @@ $product_ids = array();
                         <td><?php echo $product['name']; ?></td>
                         <td><?php echo $product['quantity']; ?></td>
                         <td><?php echo $product['price']; ?>&nbsp€</td>
-                        <td>$<?php echo number_format($product['quantity'] * $product['price'],2);; ?></td>
+                        <td><?php echo number_format($product['quantity'] * $product['price'],2); ?>&nbsp€</td>
                         <td>
                             <a href="../utilities/removeFromCart.php?action=delete&id=<?php echo $product['id']; ?>">
                                 <div class ="btn-danger">Remove</div>
@@ -120,7 +120,7 @@ $product_ids = array();
                     ?>
                     <tr>
                         <td colspan="3" align="right">Total</td>
-                        <td align="right">$ <?php echo number_format($total,2); ?></td>
+                        <td align="right"> <?php echo number_format($total,2); ?>&nbsp€</td>
                         <td></td>
                     </tr>
                     <tr>

@@ -60,7 +60,7 @@
                                <div class="products">
                                    <img src="../../images/<?php echo $product['image']; ?>" class="img-responsive"/>
                                    <h4 class="text-info"><a href="../productPage/productPage.php?productID=<?php echo $product['id']; ?>"><?php echo$product['name']; ?></a></h4>
-                                   <h4>$ <?php echo $product['price']; ?></h4>
+                                   <h4> <?php echo $product['price']; ?>€</h4>
                                    <input type="hidden" name="action" value="add">
                                    <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
                                    <input type="text" name="quantity" pattern="[0-9]{1,2}" class="form-control" value="1"/>
