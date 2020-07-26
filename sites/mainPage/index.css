@@ -1,15 +1,14 @@
-.products {
-  border: 1px solid #333; 
-  background-color: #2b3b97; 
-  border-radius: 5px; 
-  padding: 16px; 
-  margin-bottom: 20x; 
-}
-
 .container {
   max-width: 960px;
 }
 
+.products {
+  border: 1px solid #333; 
+  background-color: #f1f1f1; 
+  border-radius: 5px; 
+  padding: 16px; 
+  margin-bottom: 20x; 
+}
 
 /*
  * Custom translucent site header

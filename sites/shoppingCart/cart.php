@@ -52,38 +52,7 @@ $product_ids = array();
 			<a class="py-2 d-none d-md-inline-block" href="../login/login.php">Login</a>
 		</div>
 	</nav>
-        <div class = "container">
-        <?php
 
-        $connect = mysqli_connect('localhost', 'root', 'meinPasswort', 'webshop'); 
-        $query = 'SELECT * FROM products ORDER by id ASC'; 
-        $result = mysqli_query($connect, $query); 
-
-        if ($result) :
-            if(mysqli_num_rows($result)>0) :
-                while($product = mysqli_fetch_assoc($result)) :
-                    ?>
-                    <div class="col-sm-4 col-md-3" >
-                        <form method="post" action="../utilities/addToCart.php">
-                            <div class="products">
-                                <img src="<?php echo $product['image']; ?>" class="img-responsive"/> //nicht funktionsfähig da entfernt wird
-                                <h4 class="text-info"><?php echo $product['name']; ?></h4>
-                                <h4> <?php echo $product['price']; ?>&nbsp€</h4>
-                                <input type="hidden" name="action" value="add">
-                                <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
-                                <input type="text" name="quantity" title="Zahl muss realistisch sein!" pattern="[0-9]{1,2}" class="form-control" value="1"/> <!--regex, der prüft, ob eingabe plausibel ist -->
-                                <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
-                                <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                                <input type="submit" name="add_to_cart" style="margin-top:5px"class="btn btn-info"
-                                       value="Add to Cart" />
-                            </div>
-                        </form>
-                    </div>
-                    <?php
-                endwhile;
-            endif;
-        endif;
-        ?>
         <div style="clear:both"></div>
         <br />
         <div class="table-responsive">

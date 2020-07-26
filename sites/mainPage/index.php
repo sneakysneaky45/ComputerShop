@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
       <link href="../../assets/dist/css/bootstrap.css" rel="stylesheet">
+      <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />-->
 
     <style>
       .bd-placeholder-img {
@@ -43,7 +44,7 @@
 
   </div>
 </nav>
-<div>
+
     <div class = "container">
             <?php
 
@@ -55,28 +56,30 @@
                if(mysqli_num_rows($result)>0) :
                    while($product = mysqli_fetch_assoc($result)) :
                        ?>
+        
                        <div class="col-sm-4 col-md-3" >
                            <form method="post" action="../utilities/addToCart.php">
-                               <div class="products">
-                                   <img src="../../images/<?php echo $product['image']; ?>" class="img-responsive"/>
-                                   <h4 class="text-info"><a href="../productPage/productPage.php?productID=<?php echo $product['id']; ?>"><?php echo$product['name']; ?></a></h4>
-                                   <h4> <?php echo $product['price']; ?>€</h4>
-                                   <input type="hidden" name="action" value="add">
-                                   <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
-                                   <input type="text" name="quantity" pattern="[0-9]{1,2}" class="form-control" value="1"/>
-                                   <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
-                                   <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                                   <input type="submit" name="add_to_cart" style="margin-top:5px"class="btn btn-info"
+                              <div class="products">
+                                 <img src="../../images/<?php echo $product['image']; ?>" width="100px" class="img-responsive"/>
+                                 <h4 class="text-info"><a href="../productPage/productPage.php?productID=<?php echo $product['id']; ?>"><?php echo$product['name']; ?></a></h4>
+                                 <h4> <?php echo $product['price']; ?>€</h4>
+                                 <input type="hidden" name="action" value="add">
+                                 <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+                                 <input type="text" name="quantity" pattern="[0-9]{1,2}" class="form-control" value="1"/>
+                                 <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
+                                 <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
+                                 <input type="submit" name="add_to_cart" style="margin-top:5px"class="btn btn-info"
                                        value="Add to Cart" />
-                                   </div>
-                               </form>
-                         </div>
+                            </div>
+                        </form>
+                    </div>
                     <?php
                 endwhile;
             endif;
         endif;
     ?>
-</div>
+<div style="clear:both"></div>
+
 
 
 <footer class="container py-5">
