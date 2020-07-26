@@ -11,7 +11,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/product/">
 
     <!-- Bootstrap core CSS -->
-      <link href="assets/dist/css/bootstrap.css" rel="stylesheet">
+      <link href="../../assets/dist/css/bootstrap.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -35,12 +35,11 @@
   <body>
     <nav class="site-header sticky-top py-1">
   <div class="container d-flex flex-column flex-md-row justify-content-between">
-    <a class="py-2" href="#" aria-label="Product">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-    </a>
+    <a class="py-2 d-none d-md-inline-block" href="index.php">Heim</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Menü</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Mein Bereich</a>
-    <a class="py-2 d-none d-md-inline-block" href="signin.html">Login</a>
+    <a class="py-2 d-none d-md-inline-block" href="../meinBereich/meinBereich.php">Mein Bereich</a>
+	<a class="py-2 d-none d-md-inline-block" href="../shoppingCart/cart.php">Einkaufswagen</a>
+	<a class="py-2 d-none d-md-inline-block" href="../login/login.php">Login</a>
 
   </div>
 </nav>
@@ -57,10 +56,10 @@
                    while($product = mysqli_fetch_assoc($result)) :
                        ?>
                        <div class="col-sm-4 col-md-3" >
-                           <form method="post" action="addToCart.php">
+                           <form method="post" action="../utilities/addToCart.php">
                                <div class="products">
-                                   <img src="<?php echo $product['image']; ?>" class="img-responsive"/>
-                                   <h4 class="text-info"><a href="productPage/productPage.php?productID=<?php echo $product['id']; ?>"><?php echo$product['name']; ?></a></h4>
+                                   <img src="../../images/<?php echo $product['image']; ?>" class="img-responsive"/>
+                                   <h4 class="text-info"><a href="../productPage/productPage.php?productID=<?php echo $product['id']; ?>"><?php echo$product['name']; ?></a></h4>
                                    <h4>$ <?php echo $product['price']; ?></h4>
                                    <input type="hidden" name="action" value="add">
                                    <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
@@ -87,16 +86,16 @@
       <small class="d-block mb-3 text-muted">&copy; 2020</small>
     </div>
     <div class="col-6 col-md">
-      <h5><a class="linkBottom" href="">Daheim</a></h5>
+      <h5><a class="linkBottom" href="../footer/datenschutz.php">Datenschutz</a></h5>
     </div>
     <div class="col-6 col-md">
-      <h5><a class="linkBottom" href="">Deutschland</a></h5>
+      <h5><a class="linkBottom" href="../footer/subaroimprezzo.php">Impressum</a></h5>
     </div>
     <div class="col-6 col-md">
-      <h5><a class="linkBottom" href="">Deutschland</a></h5>
+      <h5><a class="linkBottom" href="../footer/ueberuns.php">&Uumlber uns</a></h5>
     </div>
     <div class="col-6 col-md">
-      <h5><a class="linkBottom" href="">Über alles</a></h5>
+      <h5><a class="linkBottom" href="../footer/agbs.php">AGBs</a></h5>
     </div>
   </div>
 </footer>
